@@ -36,3 +36,15 @@ export function addNote(note){
     return { errror: true, message: error}
   }
 }
+
+export function deleteNote(id){
+  const file = readNotesFile();
+  const notes = JSON.parse(file);
+  const newNotes = notes.filter(note => note.id !== id)
+  try {
+    fs.writeFileSync(getFilePath(), JSON.stringify(newNotes));
+    return { message: 'Note deleted successfully'}
+  } catch (error) {
+    return { errror: true, message: error}
+  }
+}

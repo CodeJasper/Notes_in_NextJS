@@ -1,10 +1,16 @@
 .note_item_list{
+  position: relative;
   border: 1px solid rgb(180, 180, 180);
   border-radius: 5px;
   box-shadow: 0px 0px 5px rgb(184, 184, 184);
   padding: 1rem 1rem 1rem 2rem;
   background-image: url('/images/postick_background.jpg');
   background-size: contain;
+  overflow: hidden;
+}
+
+.note_item_list:hover .note_item_list_options{
+  transform: translateY(0);
 }
 
 .note_item_list_title {
@@ -13,7 +19,30 @@
 }
 
 .note_item_list_description {
-  margin: 0;
+  margin: 0 0 1rem 0;
   height: 15rem;
   overflow: hidden;
+}
+
+.note_item_list_options{
+  display: flex;
+  justify-content: space-evenly;
+  transform: translateY(5rem);
+  transition: transform 0.2s;
+}
+
+.note_item_list_icon {
+  padding: 0.2rem;
+  background-color: transparent;
+  border: none;
+  color: rgb(92, 92, 92);
+}
+
+.note_item_list_icon:active{
+  transform: scale(0.9);
+}
+
+.note_item_list_icon:hover {
+  cursor: pointer;
+  color: rgb(18, 88, 194);
 }

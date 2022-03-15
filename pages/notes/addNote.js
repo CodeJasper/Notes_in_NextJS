@@ -13,7 +13,7 @@ export default function AddNoteFormPage(){
       title,
       description,
     }
-    fetch('/api/note',{
+    fetch('/api/notes/note',{
       method: 'POST',
       body: JSON.stringify(note),
       headers: {
