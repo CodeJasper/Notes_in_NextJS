@@ -1,12 +1,11 @@
 import { getAllNotes } from "../../helpers/fileHelpers"
+import NotesList from "../../components/Nodes_list/NotesList";
 
 export default function NotesListPage(props) {
+  const { notes } = props;
   return(
     <div>
-      <h1>Notas</h1>
-      {props.notes.map((note) => {
-        return ( <p key={note.id}>{note.title}</p>)
-      })}
+      <NotesList notes={notes} />
     </div>
   )
 }
