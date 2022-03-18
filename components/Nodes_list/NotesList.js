@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import classes from './NotesList.module.css'
 import NoteItemList from "../Node_item_list/NoteItemList";
+import AddNoteItemList from '../Add_note_item_list/AddNoteItemList';
 
 export default function NotesList (props) {
   const [notes, setNotes] = useState(props.notes)
@@ -22,6 +23,7 @@ export default function NotesList (props) {
     <>
       <h1 className={classes.node_list_title}>Notas</h1>
       <div className={classes.nodes_list}>
+        <AddNoteItemList/>
         {notes.map((note) => {
           return <NoteItemList onDelete={() => onDelete(note.id)} key={note.id} note={note}/>
         })}

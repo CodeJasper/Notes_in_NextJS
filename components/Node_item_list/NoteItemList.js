@@ -1,6 +1,6 @@
 import classes from './NoteItemList.module.css'
 import Button from '../UI/Button';
-import Link from '../UI/Link';
+import Link from 'next/link';
 
 export default function NoteItemList(props){
   const { note, onView, hrefEdit, onDelete } = props;
@@ -13,8 +13,10 @@ export default function NoteItemList(props){
         <Button onClick={onView} classes={classes.note_item_list_icon}>
           <span className={`material-icons`}>visibility</span>
         </Button>
-        <Link href={hrefEdit} classes={classes.note_item_list_icon}>
-          <span className={`material-icons`}>edit</span>
+        <Link href={"hrefEdit"} >
+          <a>
+            <span className={`${classes.note_item_list_icon} material-icons`}>edit</span>
+          </a>
         </Link>
         <Button onClick={onDelete} classes={classes.note_item_list_icon}>
           <span className={`material-icons`}>delete</span>

@@ -1,0 +1,22 @@
+.wrapper_submit_button {
+  padding: 1rem;
+  position: sticky;
+  top: 0px;
+  background-color: rgb(252, 252, 252);;
+}
+
+.submit_button{
+  width: 100%;
+  padding: 1rem;
+  background-color: rgb(165, 243, 165);
+  border: 1px solid rgb(129, 129, 129);
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px rgb(209, 209, 209);
+  font-size: 2rem;
+  color: rgb(17, 17, 17);
+}
+
+.submit_button:hover {
+  cursor: pointer;
+  background-color: rgb(133, 216, 133);
+}
