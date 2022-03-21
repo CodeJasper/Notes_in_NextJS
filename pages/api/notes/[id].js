@@ -1,4 +1,4 @@
-import { deleteNote } from "../../../helpers/fileHelpers";
+import { deleteNote, updateNote } from "../../../helpers/fileHelpers";
 
 export default function handler(req, res) {
   if( req.method === "DELETE"){
@@ -8,6 +8,18 @@ export default function handler(req, res) {
       res.status(500).json({ message_error: response.message })
     } else {
       res.status(200).json({ message: response.message })
+    }
+  }
+
+  if( req.method === "PUT"){
+    const { note } = req.body;
+    const { id } = req.query;
+    const updatedNote = {...note, id };
+    const response = updateNote(updatedNote);
+    if(response.errror){
+      res.status(500).json({ message_error: response.message })
+    } else {
+      res.status(200).json({ message: response.message, note: updatedNote })
     }
   }
 }

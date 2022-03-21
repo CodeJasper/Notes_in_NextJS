@@ -1,22 +1,24 @@
+import NoteForm from "../../components/Add_note_form/NoteForm"
 import { getNote } from "../../helpers/fileHelpers"
 
 export default function DetailNotePage(props){
+
+  const { noteInfo } = props;
+
   return (
     <>
-      <h1>Detalle de una nota</h1>
-      <p>{props.note.title}</p>
+      <NoteForm noteInfo={noteInfo} />
     </>
   )
 }
 
 export async function getStaticProps(context){
   const { params: { noteId }} = context;
-  const note =  getNote(noteId);
-  console.log(note)
+  const noteInfo =  getNote(noteId);
 
   return {
     props: {
-      note: {}
+      noteInfo
     }
   }
 }

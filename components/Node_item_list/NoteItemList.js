@@ -3,7 +3,7 @@ import Button from '../UI/Button';
 import Link from 'next/link';
 
 export default function NoteItemList(props){
-  const { note, onView, hrefEdit, onDelete } = props;
+  const { note, onView, onDelete } = props;
 
   return (
     <div className={classes.note_item_list}>
@@ -13,7 +13,7 @@ export default function NoteItemList(props){
         <Button onClick={onView} classes={classes.note_item_list_icon}>
           <span className={`material-icons`}>visibility</span>
         </Button>
-        <Link href={"hrefEdit"} >
+        <Link href={`notes/${note.id}`} >
           <a>
             <span className={`${classes.note_item_list_icon} material-icons`}>edit</span>
           </a>

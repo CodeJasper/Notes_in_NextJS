@@ -48,3 +48,20 @@ export function deleteNote(id){
     return { errror: true, message: error}
   }
 }
+
+export function updateNote(updatedNote){
+  const file = readNotesFile();
+  const notes = JSON.parse(file);
+  const newNotes = notes.map(note => {
+    if( note.id === updatedNote.id ){
+      return updatedNote
+    }
+    return note
+  })
+  try {
+    fs.writeFileSync(getFilePath(), JSON.stringify(newNotes));
+    return { message: 'Note updated successfully'}
+  } catch (error) {
+    return { errror: true, message: error}
+  }
+}
